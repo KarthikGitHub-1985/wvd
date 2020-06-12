@@ -1,0 +1,94 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"_artifactsLocation": {
+			"value": "https://gblpr01wvdrg001diag.blob.core.windows.net/"
+		},
+		"rdshImageSource": {
+			"value": "SharedImageGallery"
+		},
+		"SharedImageGalleryResourceGroup": {
+			"value": "glblpr01-sig-rg001"
+		},
+		"SharedImageGalleryName": {
+            "value": "AES_Shared_Image_Gallery"
+		},
+		"SharedImageGalleryDefinitionName": {
+            "value": "AES-WVD-HostPool-MasterImage"
+		},
+		"SharedImageGalleryVersionName": {
+			"value": "latest"
+		},
+		"hostPoolName": {
+			"value": "glbldv01npwvdhp01"
+		},
+		"rdshNamePrefix": {
+			"value": "npwvdhpsh"
+		},
+		"rdshNumberOfInstances": {
+			"value": 1
+		},
+		"rdshVmSize": {
+			"value": "Standard_D4s_v3"
+		},
+		"rdshVMDiskType": {
+			"value": "StandardSSD_LRS"
+		},
+		"domainToJoin": {
+			"value": "adds.aes.com"
+		},
+		"existingDomainUPN": {
+			"value": "kyle.brumbaugh@aes.com"
+		},
+		"existingDomainPassword": {
+			"reference": {
+				"keyVault": {
+					"id": "/subscriptions/10c655b7-5974-41c8-bfa5-24caf9433166/resourceGroups/glbldv01-wvd-rg001/providers/Microsoft.KeyVault/vaults/glbldv01-wvd-kb001"
+				},
+				"secretName": "sa-domainjoiner"
+			}
+		},
+		"ouPath": {
+			"value": "OU=WVD,DC=adds,DC=aes,DC=com"
+		},
+		"existingVnetName": {
+			"value": "glbdv01vnet001"
+		},
+		"existingSubnetName": {
+			"value": "glbdv01-npwvdhp-subnet"
+		},
+		"virtualNetworkResourceGroupName": {
+			"value": "glbdv01-network-rg001"
+		},
+		"rdBrokerURL": {
+			"value": "https://rdbroker.wvd.microsoft.com"
+		},
+		"existingTenantGroupName": {
+			"value": "Default Tenant Group"
+		},
+		"existingTenantName": {
+			"value": "aesglbpr01wvd"
+		},		
+		"defaultDesktopUsers": {
+			"value": "effone.pmuslae@aes.com,karthik.namburu@aes.com,kyle.brumbaugh@aes.com,microsoft.ahmed.c@aes.com"
+		},
+		"tenantAdminUpnOrApplicationId": {
+			"value": "56900f25-05c5-438d-aa0f-7daaec9c0c1b"
+		},
+		"tenantAdminPassword": {
+			"reference": {
+				"keyVault": {
+					"id": "/subscriptions/10c655b7-5974-41c8-bfa5-24caf9433166/resourceGroups/glbldv01-wvd-rg001/providers/Microsoft.KeyVault/vaults/glbldv01-wvd-kb001"
+				},
+				"secretName": "WVD-SvP"
+			}
+		},
+		"isServicePrincipal": {
+			"value": true
+		},
+		"aadTenantId": {
+			"value": "9f4ff239-1cce-427f-b2b9-d3b7d48502cb"
+		}
+	}
+}
